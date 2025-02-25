@@ -1,4 +1,5 @@
 import 'package:fakestore_flutter/screens/navigation/detail_product_list_view_screen.dart';
+import 'package:fakestore_flutter/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../model/product.dart';
@@ -59,7 +60,31 @@ class _ProductListScreenState extends State<ProductListScreen> {
                     ),
                   ),
                   title: Text(product.title),
-                  subtitle: Text(product.category),
+                  subtitle: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.lightBlue,
+                          borderRadius: BorderRadius.circular(2)
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 1.0, bottom: 1, left: 2, right: 2),
+                          child: Text(product.category, style: gayaTextKecil),
+                        )
+                      ),
+                      SizedBox(width: 6),
+                      Container(
+                          decoration: BoxDecoration(
+                              color: Colors.redAccent,
+                              borderRadius: BorderRadius.circular(2)
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 1.0, bottom: 1, left: 2, right: 2),
+                            child: Text("\$${product.price.toString()}", style: gayaTextKecil),
+                          )
+                      ),
+                    ],
+                  ),
                   onTap: () {
                     // log("Indeks ke $index ditekan");
                     Navigator.push(

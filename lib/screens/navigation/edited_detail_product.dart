@@ -51,18 +51,13 @@ class EditDetailProductListItemScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Text(
-                        textAlign: TextAlign.left,
-                        batasText(item.title),
-                        style: gayaTextPrimary,
-                      ),
-                      SizedBox(width: 40),
-                      Text("\$$harga", style: gayaTextHarga),
-                    ],
+                  Text(
+                    textAlign: TextAlign.left,
+                    batasText(item.title),
+                    style: gayaTextPrimary,
                   ),
+                  SizedBox(height: 12),
+                  Text("\$$harga", style: gayaTextHarga),
                   Container(
                     margin: EdgeInsets.all(8),
                     child: Column(

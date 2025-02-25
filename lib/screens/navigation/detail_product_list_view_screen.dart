@@ -10,7 +10,6 @@ class DetailProductListItemScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String harga = item.price.toString();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -51,16 +50,40 @@ class DetailProductListItemScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
+                  Text(
+                    textAlign: TextAlign.left,
+                    batasText(item.title),
+                    style: gayaTextPrimary,
+                  ),
+                  SizedBox(height: 12),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        textAlign: TextAlign.left,
-                        batasText(item.title),
-                        style: gayaTextPrimary,
+                      Container(
+                          decoration: BoxDecoration(
+                            color: Colors.lightBlue,
+                            borderRadius: BorderRadius.circular(2)
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 1.0, bottom: 1, left: 2, right: 2),
+                            child: Text(
+                              textAlign: TextAlign.left,
+                              item.category,
+                              style: gayaTextKecil,
+                            ),
+                          )
                       ),
-                      SizedBox(width: 40),
-                      Text("\$$harga", style: gayaTextHarga),
+                      SizedBox(width: 10),
+                      Container(
+                          decoration: BoxDecoration(
+                              color: Colors.redAccent,
+                              borderRadius: BorderRadius.circular(2)
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 1.0, bottom: 1, left: 2, right: 2),
+                            child: Text("\$${item.price.toString()}", style: gayaTextKecil),
+                          )
+                      ),
                     ],
                   ),
                   Container(
@@ -68,7 +91,6 @@ class DetailProductListItemScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text(textAlign: TextAlign.left, item.category),
                         SizedBox(height: 8),
                         Text(textAlign: TextAlign.justify, item.description),
                       ],
